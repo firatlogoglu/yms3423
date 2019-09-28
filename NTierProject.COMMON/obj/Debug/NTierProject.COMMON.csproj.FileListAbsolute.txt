@@ -1,0 +1,6 @@
+C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.COMMON\bin\Debug\NTierProject.COMMON.dll
+C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.COMMON\bin\Debug\NTierProject.COMMON.pdb
+C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.COMMON\obj\Debug\NTierProject.COMMON.csprojAssemblyReference.cache
+C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.COMMON\obj\Debug\NTierProject.COMMON.csproj.CoreCompileInputs.cache
+C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.COMMON\obj\Debug\NTierProject.COMMON.dll
+C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.COMMON\obj\Debug\NTierProject.COMMON.pdb

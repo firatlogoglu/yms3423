@@ -1,0 +1,53 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Ürünler";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <section class="panel">
+        <header class="panel-heading">
+            @ViewBag.Title @Html.ActionLink("Yeni Ekle","Create",null,new { @class="btn btn-primary"})
+        </header>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Görsel</th>
+                    <th>Ürün Adı</th>
+                    <th>Stok</th>
+                    <th>Kategori Adı</th>
+                    <th colspan="2">
+                        Düzenle
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <img src="@item.ImagePath" style="width:32px; height:32px;" />
+                    </td>
+                    <td>@item.ProductName</td>
+                    <td>@item.UnitsInStock</td>
+                    <!--HATA VAR!-->
+                    @try
+                    {
+                        <td>@item.SubCategory.Name</td>
+                    }
+                    catch (Exception ex)
+                    {
+
+                        <td>@ex.Message</td>
+                    }
+                    <td>
+                        <a href="@Url.Action("Update","Product",new { id=item.ID})"><i class="icon-pencil"></i></a>
+                        |
+                        <a href="@Url.Action("Delete","Product",new { id=item.ID})"><i class="icon-trash"></i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>

@@ -1,0 +1,66 @@
+﻿<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <li>
+                <a class="active" href="@Url.Action("Index","Home")">
+                    <i class="icon-dashboard"></i>
+                    <span>Panel</span>
+                </a>
+            </li>
+
+            <li class="sub-menu">
+                <a href="~/Content/adminTheme/javascript:;">
+                    <i class="icon-folder-close"></i>
+                    <span>Kategori</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="@Url.Action("Index","Category")">Kategoriler</a></li>
+                    <li><a href="@Url.Action("Index","SubCategory")">Alt Kategoriler</a></li>
+                    <li><a href="@Url.Action("Create","Category")">Kategori Ekle</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a href="~/Content/adminTheme/javascript:;">
+                    <i class="icon-shopping-cart"></i>
+                    <span>Ürünler</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="~/Content/adminTheme/general.html">Hepsi</a></li>
+                    <li><a href="~/Content/adminTheme/buttons.html">Ürün Ekle</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a href="~/Content/adminTheme/javascript:;">
+                    <i class="icon-tag"></i>
+                    <span>Siparişler</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="~/Content/adminTheme/grids.html">Sipariş Listesi</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="~/Content/adminTheme/javascript:;">
+                    <i class="icon-tasks"></i>
+                    <span>Sipariş Detay</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="~/Content/adminTheme/form_component.html">Sipariş Detayları</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="~/Content/adminTheme/javascript:;">
+                    <i class="icon-user-md"></i>
+                    <span>Kullanıcılar</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="~/Content/adminTheme/basic_table.html">Tüm Kullanıcılar</a></li>
+                    <li><a href="~/Content/adminTheme/responsive_table.html">Kullanıcı Ekle</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

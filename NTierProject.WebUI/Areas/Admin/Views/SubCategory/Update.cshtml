@@ -1,0 +1,36 @@
+﻿@model NTierProject.WebUI.Areas.Admin.Models.SubCategoryVM
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            @ViewBag.Title
+        </header>
+        <form method="post" action="/Admin/SubCategory/Update">
+            <div class="form-group">
+                <label>Alt Kategori Adı</label>
+                <input type="text" class="form-control" name="Name" value="@Model.SubCategory.Name" />
+            </div>
+            <div class="form-group">
+                <label>Açıklama</label>
+                <input type="text" class="form-control" name="Description" value="@Model.SubCategory.Description" />
+            </div>
+            <div class="form-group">
+                <label>Kategori Seç</label>
+                <select class="form-control" name="CategoryID">
+                    @foreach (var item in Model.Categories)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info">Gönder</button>
+            <input style="visibility:hidden" type="text" name="ID" value="@Model.SubCategory.ID" />
+            @*@Html.HiddenFor(x=>x.SubCategory.ID)*@
+        </form>
+    </section>
+</div>
+

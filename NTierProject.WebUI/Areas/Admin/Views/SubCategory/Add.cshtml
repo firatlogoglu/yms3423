@@ -1,0 +1,34 @@
+﻿@model List<Category>
+@{
+    ViewBag.Title = "Alt kategori Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            @ViewBag.Title
+        </header>
+        <form method="post" action="/Admin/SubCategory/Add">
+            <div class="form-group">
+                <label>Alt Kategori Adı</label>
+                <input type="text" class="form-control" name="Name" placeholder="Alt kategori adı giriniz." />
+            </div>
+            <div class="form-group">
+                <label>Açıklama</label>
+                <input type="text" class="form-control" name="Description" placeholder="Açıklama girin." />
+            </div>
+            <div class="form-group">
+                <label>Kategori Seç</label>
+                <select class="form-control" name="CategoryID">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info">Gönder</button>
+        </form>
+    </section>
+</div>
+

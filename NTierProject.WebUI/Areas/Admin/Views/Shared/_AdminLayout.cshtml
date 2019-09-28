@@ -1,0 +1,149 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="~/Content/adminTheme/img/favicon.png">
+
+    <title>NTierProject</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/adminTheme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/adminTheme/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/adminTheme/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/adminTheme/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/adminTheme/css/owl.carousel.css" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/Content/adminTheme/css/style.css" rel="stylesheet">
+    <link href="~/Content/adminTheme/css/style-responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <section id="container">
+        <!--header start-->
+        <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+            </div>
+            <!--logo start-->
+            <a href="~/Content/adminTheme/index.html" class="logo">Flat<span>lab</span></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                </ul>
+                <!--  notification end -->
+            </div>
+            <div class="top-nav ">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li>
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="~/Content/adminTheme/#">
+                            <img alt="" src="~/Content/adminTheme/img/avatar1_small.jpg">
+                            <span class="username">Jhon Doue</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li><a href="~/Content/adminTheme/#"><i class=" icon-suitcase"></i>Profile</a></li>
+                            <li><a href="~/Content/adminTheme/#"><i class="icon-cog"></i> Settings</a></li>
+                            <li><a href="~/Content/adminTheme/#"><i class="icon-bell-alt"></i> Notification</a></li>
+                            <li><a href="~/Content/adminTheme/login.html"><i class="icon-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        @Html.Partial("_SidebarPartial")
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+
+                <!--Start Content-->
+                
+              @RenderBody()
+
+                <!--End Content-->
+            </section>
+        </section>
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                2013 &copy; FlatLab by VectorLab.
+                <a href="~/Content/adminTheme/#" class="go-top">
+                    <i class="icon-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/adminTheme/js/jquery.js"></script>
+    <script src="~/Content/adminTheme/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Content/adminTheme/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Content/adminTheme/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Content/adminTheme/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Content/adminTheme/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="~/Content/adminTheme/js/jquery.sparkline.js" type="text/javascript"></script>
+    <script src="~/Content/adminTheme/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/Content/adminTheme/js/owl.carousel.js"></script>
+    <script src="~/Content/adminTheme/js/jquery.customSelect.min.js"></script>
+    <script src="~/Content/adminTheme/js/respond.min.js"></script>
+
+    <script class="include" type="text/javascript" src="~/Content/adminTheme/js/jquery.dcjqaccordion.2.7.js"></script>
+
+    <!--common script for all pages-->
+    <script src="~/Content/adminTheme/js/common-scripts.js"></script>
+
+    <!--script for this page-->
+    <script src="~/Content/adminTheme/js/sparkline-chart.js"></script>
+    <script src="~/Content/adminTheme/js/easy-pie-chart.js"></script>
+    <script src="~/Content/adminTheme/js/count.js"></script>
+
+    <script>
+
+      //owl carousel
+
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true,
+			  autoPlay:true
+
+          });
+      });
+
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+    </script>
+
+</body>
+</html>
