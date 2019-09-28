@@ -1,0 +1,110 @@
+﻿<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">NTierProject</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="@Url.Action("Index","Home")">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Panel</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#category"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-bars"></i>
+            <span>Kategori</span>
+        </a>
+        <div id="category" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Kategori:</h6>
+                <a class="collapse-item" href="@Url.Action("Index","Category")">Kategoriler</a>
+                <a class="collapse-item" href="@Url.Action("Index","SubCategory")">Alt Kategoriler</a>
+                <a class="collapse-item" href="@Url.Action("Create","Category")">Kategori Ekle</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produtc"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-shopping-bag"></i>
+            <span>Ürünler</span>
+        </a>
+        <div id="produtc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Ürünler:</h6>
+                <a class="collapse-item" href="utilities-color.html">Hepsi</a>
+                <a class="collapse-item" href="utilities-border.html">Ürün Ekle</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#order"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-shopping-bag"></i>
+            <span>Siparişler</span>
+        </a>
+        <div id="order" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="utilities-color.html">Sipariş Listesi</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#orderdetay"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-shopping-bag"></i>
+            <span>Sipariş Detay</span>
+        </a>
+        <div id="orderdetay" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="utilities-color.html">Sipariş Detayları</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Kullanıcılar</span>
+        </a>
+        <div id="user" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="utilities-color.html">Tüm Kullanıcılar</a>
+                <a class="collapse-item" href="utilities-color.html">Kullanıcı Ekle</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>
+<!-- End of Sidebar -->

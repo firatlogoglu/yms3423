@@ -1,0 +1,33 @@
+﻿@model NTierProject.MODEL.Entities.AppUser
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Kayıt Ol</h1>
+</div>
+
+<div class="col-lg-12">
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-signin", enctype = "multipart/form-data" }))
+    {
+        <div class="">
+            <p>Lütfen bilgilerinizi aşağıdakki formu kullanarak doldurun</p>
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Kullanıcıadı girin" })
+            @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Ad girin" })
+            @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", placeholder = "Soyad girin" })
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Şifre girin" })
+            @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+            @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar Şifre girin" })
+            @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email girin" })
+            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control", placeholder = "Adres girin" })
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Telefon girin" })
+            <input type="file" class="form-control" name="ImagePath">
+            <button type="submit" class="btn btn-success">Gönder</button>
+        </div>
+    }
+</div>
