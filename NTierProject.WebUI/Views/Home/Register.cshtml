@@ -1,0 +1,52 @@
+﻿@model NTierProject.MODEL.Entities.AppUser
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-signin", enctype = "multipart/form-data" }))
+    {
+        <h2 class="form-signin-heading">Kayıt Ol</h2>
+        <div class="login-wrap">
+            <p>Lütfen bilgilerinizi aşağıdakki formu kullanarak doldurun</p>
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Kullanıcıadı girin" })
+            @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Ad girin" })
+            @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", placeholder = "Soyad girin" })
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Şifre girin" })
+            @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+            @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar Şifre girin" })
+            @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email girin" })
+            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control", placeholder = "Adres girin" })
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Telefon girin" })
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                </div>
+                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                <div>
+                    <span class="btn btn-white btn-file">
+                        <span class="fileupload-new"><i class="icon-paper-clip"></i> Resim Seç</span>
+                        <span class="fileupload-exists"><i class="icon-undo"></i> Değiştir</span>
+                        <input type="file" class="default" name="ImagePath">
+                    </span>
+                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="icon-trash"></i> Kaldır</a>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Gönder</button>
+        </div>
+    }
+
+
+</div>
+
+@section scripts{
+    <script src="~/Content/adminTheme/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+
+}
+
+

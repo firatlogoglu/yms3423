@@ -1,0 +1,42 @@
+﻿@model List<SubCategory>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            @ViewBag.Title
+        </header>
+        <form method="post" action="/Admin/Product/Create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Ürün Adı</label>
+                <input type="text" class="form-control" name="ProductName" placeholder="ürün adı giriniz." />
+            </div>
+            <div class="form-group">
+                <label>Fiyat</label>
+                <input type="text" class="form-control" name="UnitPrice" placeholder="fiyat girin." />
+            </div>
+            <div class="form-group">
+                <label>Stok</label>
+                <input type="text" class="form-control" name="UnitsInStock" placeholder="stok girin." />
+            </div>
+            <div class="form-group">
+                <label>Kategori Seç</label>
+                <select class="form-control" name="SubCategoryID">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Görsel Seç</label>
+                <input type="file" class="form-control" name="ImagePath" />
+            </div>
+            <button type="submit" class="btn btn-info">Gönder</button>
+        </form>
+    </section>
+</div>
+
