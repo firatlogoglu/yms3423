@@ -1,0 +1,87 @@
+﻿@using NTierProject.CORE.Enums
+@model AppUser
+@{
+    ViewBag.Title = "Kullanıcı Düzenle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                @ViewBag.Title
+            </header>
+            <div class="panel-body">
+                @using (Html.BeginForm("Edit", "AppUser", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+                {
+                    <div class="form-group">
+                        <label for="Name">Adı</label>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="İsim giriniz.." value="@Model.Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="SurName">Soyadı</label>
+                        <input type="text" class="form-control" id="SurName" name="SurName" placeholder="Soyisim giriniz.." value="@Model.SurName">
+                    </div>
+                    <div class="form-group">
+                        <label for="UserName">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" id="UserName" name="UserName" placeholder="Kullanıcı adı giriniz.." value="@Model.UserName">
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Şifre</label>
+                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Şifre giriniz.." value="@Model.Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email adresi giriniz.." value="@Model.Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Adres</label>
+                        <textarea class="form-control" id="Address" name="Address" placeholder="Adres giriniz..">@Model.Address</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="PhoneNumber">Telefon</label>
+                        <input type="tel" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Telefon giriniz.." value="@Model.PhoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="BirthDate">Doğum Tarihi</label>
+                        <input type="text" class="form-control" id="BirthDate" name="BirthDate" value="@(((DateTime)(Model.BirthDate)).ToShortDateString())">
+                    </div>
+                    <div class="form-group">
+                        <label for="Role">Yetki</label>
+                        <select class="form-control" id="Role" name="Role">
+                            @foreach (var item in Enum.GetValues(typeof(Role)))
+                            {
+                                if ((Role)item == Model.Role)
+                                {
+                                    <option selected>@item</option>
+                                }
+                                else
+                                {
+                                    <option>@item</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="isActive">Aktif/Pasif</label>
+                        <select class="form-control" id="isActive" name="isActive">
+                            <option @(Model.isActive == true ? "selected" : "") value="true">Aktif</option>
+                            <option @(Model.isActive == false ? "selected" : "") value="false">Pasif</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <img src="@Model.ImagePath" style="width:64px; height:64px" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ImagePath">Görsel Seç</label>
+                        <input type="file" class="form-control" id="ImagePath" name="ImagePath" />
+                    </div>
+                    <input type="hidden" name="ID" value="@Model.ID" />
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                    <a href="@Url.Action("Index", "AppUser")" class="btn btn-default">Kullanıcılara geri dön</a>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
