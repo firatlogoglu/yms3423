@@ -1,0 +1,29 @@
+git config --global user.name "ali özgür"
+
+git config --global user.email "ali.ozgur@example.com"
+
+------------------------------------------------------------------------------
+
+ilk olarak git repo'da bulunan projeyi aþaðýdaki kodu kullanarak kendi bilgisayarýmýzdaki depoya klonluyoruz.
+
+git clone https://github.com/fatihGunalp/yms3423
+-------------------------------------------
+klon iþlemi bittikten sonra yapacaðýmýz iþleme dair bir Branch (dal) oluþturuyoruz.
+
+git checkout -b ProductCrud
+-------------------------------------------
+'visual studio üzerinde yapýlan Crud iþlemlerinin ardýndan her bir iþlemi önce branch'e ekliyoruz.'
+
+git add .
+-------------------------------------------
+daha sonra yapýlan iþlemlerin özetini görmek için;
+git status
+-------------------------------------------
+branch'e eklediðimiz iþlemleri onaylamamýz yani kalýcý hale getirmemiz gerekmektedir.
+git commit -m "Product Crud iþlemleri"
+-------------------------------------------
+onay iþleminden sonrada oluþturduðumuz branch'i yani dalý uzak depomuza göndermemiz gerekmektedir.
+
+git push origin ProductCrud
+
+-------------------------------------------
