@@ -13,6 +13,7 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
     {
         ProductService ProductService = new ProductService();
         SubCategoryService subCategory = new SubCategoryService();
+
         public ActionResult Index()
         {
             var products = ProductService.GetActive().OrderByDescending(x => x.CreatedDate).ToList();
@@ -35,9 +36,31 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         }
 
         //Todo: Update Action
+        public ActionResult Update(Guid id)
+        {
+            ViewBag.SubCategories = subCategory.GetAll();
+            return View(ProductService.GetById(id));
+        }
 
+        [HttpPost]
+        public ActionResult Update(Product model,HttpPostedFileBase ImagePath,Guid SubCategoryID)
+        {
+            ViewBag.SubCategories = subCategory.GetAll();
+            model.SubCategory = subCategory.GetById(SubCategoryID);
+            model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/Users/", ImagePath);
+            ProductService.Update(model);
+            return View("Index");
+        }
 
         //Todo: Delete Action
+
+        public ActionResult Delete(Guid id)
+        {
+            var deleted=ProductService.GetById(id);
+            ProductService.Remove(deleted);
+            return View("Index");
+        }
+
 
     }
 }
