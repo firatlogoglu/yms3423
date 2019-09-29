@@ -20,6 +20,12 @@ namespace NTierProject.WebUI.Controllers
             return View();
         }
 
+        public ActionResult Update()
+        {
+           
+            return View();
+        }
+
 
 
     }
