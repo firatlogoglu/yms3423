@@ -17,7 +17,6 @@ namespace NTierProject.WebUI.Controllers
             appUser = new AppUserService();
         }
 
-
         public ActionResult Index()
         {
             return View();
