@@ -34,3 +34,21 @@ C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierP
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.csproj.CopyComplete
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.dll
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.pdb
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NtierProject.SERVICE.dll.config
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NtierProject.SERVICE.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NtierProject.SERVICE.pdb
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\EntityFramework.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NTierProject.CORE.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NTierProject.MODEL.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NTierProject.CORE.pdb
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NTierProject.CORE.dll.config
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NTierProject.MODEL.pdb
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\NTierProject.MODEL.dll.config
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\EntityFramework.xml
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.csprojAssemblyReference.cache
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.csproj.CoreCompileInputs.cache
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.csproj.CopyComplete
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NtierProject.SERVICE\obj\Debug\NtierProject.SERVICE.pdb

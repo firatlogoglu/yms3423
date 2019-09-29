@@ -34,3 +34,15 @@ C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierP
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.CORE\obj\Debug\NTierProject.CORE.csproj.CopyComplete
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.CORE\obj\Debug\NTierProject.CORE.dll
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.CORE\obj\Debug\NTierProject.CORE.pdb
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\NTierProject.CORE.dll.config
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\NTierProject.CORE.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\NTierProject.CORE.pdb
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\EntityFramework.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\EntityFramework.xml
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\obj\Debug\NTierProject.CORE.csprojAssemblyReference.cache
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\obj\Debug\NTierProject.CORE.csproj.CoreCompileInputs.cache
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\obj\Debug\NTierProject.CORE.csproj.CopyComplete
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\obj\Debug\NTierProject.CORE.dll
+C:\Users\Ömer Faruk Bal\Qsync\Git\yms3423\NTierProject.CORE\obj\Debug\NTierProject.CORE.pdb
