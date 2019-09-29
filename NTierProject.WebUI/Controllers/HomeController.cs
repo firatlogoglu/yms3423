@@ -17,10 +17,10 @@ namespace NTierProject.WebUI.Controllers
             appUser = new AppUserService();
         }
 
-
+        ProductService ps = new ProductService();
         public ActionResult Index()
         {
-            return View();
+            return View(ps.GetActive());
         }
 
         public ActionResult Register()
