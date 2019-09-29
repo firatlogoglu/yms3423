@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Models\SubCategoryVM.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2073,6 +2074,7 @@
     <Folder Include="Models\" />
     <Folder Include="Uploads\Users\" />
     <Folder Include="Views\Member\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
