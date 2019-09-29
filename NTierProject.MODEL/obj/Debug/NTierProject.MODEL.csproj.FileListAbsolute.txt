@@ -52,3 +52,21 @@ C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierP
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.csproj.CopyComplete
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.dll
 C:\Users\Fatih\Desktop\Sınıflar\Kadıköy\YMS 3423\7.NTierProject\22.09\NTierProject\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.pdb
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\NTierProject.MODEL.dll.config
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\NTierProject.MODEL.dll
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\NTierProject.MODEL.pdb
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\Bogus.dll
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\EntityFramework.dll
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\NTierProject.CORE.dll
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\NTierProject.CORE.pdb
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\NTierProject.CORE.dll.config
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\Bogus.pdb
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\Bogus.xml
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\EntityFramework.xml
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.csprojAssemblyReference.cache
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.csproj.CoreCompileInputs.cache
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.csproj.CopyComplete
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.dll
+C:\Users\oguzcan.ocal\Desktop\github\yms3423\NTierProject.MODEL\obj\Debug\NTierProject.MODEL.pdb
