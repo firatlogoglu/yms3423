@@ -1,0 +1,54 @@
+﻿@model NTierProject.MODEL.Entities.Product
+@{
+    ViewBag.Title = "Güncelleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            @ViewBag.Title
+        </header>
+        
+        @using (Html.BeginForm("Update", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            
+
+            @*@Html.HiddenFor(i=>i.Product.ID)*@
+            <div class="form-group">
+                <label>Ürün Adı</label>
+                @Html.TextBoxFor(i=>i.ProductName,new {@class="form-control",placeholder="ürün adı giriniz." })
+                @*<input type="text" class="form-control" name="ProductName" placeholder="ürün adı giriniz." />*@
+            </div>
+            <div class="form-group">
+                <label>Fiyat</label>
+                @Html.TextBoxFor(i => i.UnitPrice, new {@class="form-control", placeholder = "fiyat girin." })
+
+                @*<input type="text" class="form-control" name="UnitPrice" placeholder="fiyat girin." />*@
+            </div>
+            <div class="form-group">
+                <label>Stok</label>
+                @Html.TextBoxFor(i => i.UnitsInStock, new { @class = "form-control", placeholder = "stok girin." })
+
+                <input type="text" class="form-control" name="UnitsInStock" placeholder="stok girin." />
+            </div>
+            <div class="form-group">
+                <label>Kategori Seç</label>
+                <select class="form-control" name="SubCategoryID">
+                    @foreach (var item in  ViewBag.SubCategories)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                   
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Görsel Seç</label>
+                <input type="file" class="form-control" name="ImagePath" />
+            </div>
+            <button type="submit" class="btn btn-info">Gönder</button>
+        }
+     
+    </section>
+</div>
