@@ -47,8 +47,17 @@ namespace NTierProject.MODEL.Context
             string computerName = Environment.MachineName;
             DateTime dateTime = DateTime.Now;
             int user = 1;
-            //Todo: Ip string olarak al!
-            string ip = HttpContext.Current.Request.UserHostAddress.ToString();
+
+            string ip = "";
+
+            if (HttpContext.Current == null)
+            {
+                ip = "192.168.1.1";
+            }
+            else
+            {
+                ip = HttpContext.Current.Request.UserHostAddress.ToString();
+            }
 
             foreach (var item in modifedEntry)
             {
@@ -96,9 +105,5 @@ namespace NTierProject.MODEL.Context
                 throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
             }
         }
-
-
-        //Todo: Incele:Object reference not set to an instance of an object.
-
     }
 }
