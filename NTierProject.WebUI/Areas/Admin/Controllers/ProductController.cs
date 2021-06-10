@@ -30,7 +30,7 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         public ActionResult Create(Product model, HttpPostedFileBase ImagePath)
         {
             model.ID = Guid.NewGuid();
-            model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads", ImagePath);
+            model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/", ImagePath);
             ProductService.Add(model);
             return RedirectToAction("Index");
         }
