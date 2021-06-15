@@ -12,15 +12,23 @@ namespace NTierProject.WebUI.Controllers
     public class HomeController : Controller
     {
         AppUserService appUser;
+        ProductService ps;
         public HomeController()
         {
             appUser = new AppUserService();
+            ps = new ProductService();
         }
 
-        ProductService ps = new ProductService();
         public ActionResult Index()
         {
-            return View(ps.GetActive());
+            try
+            {
+                return View(ps.GetActive());
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Register()
@@ -31,7 +39,6 @@ namespace NTierProject.WebUI.Controllers
         [HttpPost]
         public ActionResult Register(AppUser model, HttpPostedFileBase ImagePath)
         {
-
             if (ModelState.IsValid)
             {
                 if (appUser.Any(x => x.UserName == model.UserName))
@@ -46,11 +53,10 @@ namespace NTierProject.WebUI.Controllers
                 }
                 else
                 {
-                    //Todo: Aktivasyon action tanımla.
                     model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/Users/", ImagePath);
                     model.ID = Guid.NewGuid();
                     appUser.Add(model);
-                    string sendMessage = "Tebrikler hesabınız oluşturuldu. Hesabınızı Aktive etmek için http://localhost:50247/Home/Aktivasyon/"+model.ActivationCode;
+                    string sendMessage = "Tebrikler hesabınız oluşturuldu. Hesabınızı Aktive etmek için http://localhost:50247/Home/Aktivasyon/" + model.ActivationCode;
 
                     string _subject = $"Hoşgeldin {model.UserName}";
 
@@ -64,8 +70,6 @@ namespace NTierProject.WebUI.Controllers
                 return View();
             }
 
-            
-            
         }
 
         public ActionResult RegisterOk()
@@ -73,7 +77,6 @@ namespace NTierProject.WebUI.Controllers
             return View();
         }
 
-        
         public ActionResult Aktivasyon(Guid id)
         {
             if (appUser.Any(x => x.ActivationCode == id))
@@ -81,11 +84,8 @@ namespace NTierProject.WebUI.Controllers
                 AppUser aktiveEdilecek = appUser.GetByDefault(x => x.ActivationCode == id);
                 aktiveEdilecek.isActive = true;
                 appUser.Update(aktiveEdilecek);
-
             }
             return View();
         }
-
-
     }
 }
