@@ -1,10 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{908E8E8B-4D86-44E7-BFEC-B2C7B22D483C}"
 	ProjectSection(SolutionItems) = preProject
+		Github.txt = Github.txt
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
