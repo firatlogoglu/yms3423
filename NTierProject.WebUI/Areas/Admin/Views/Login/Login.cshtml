@@ -1,103 +1,68 @@
 ﻿@model NTierProject.MODEL.Entities.AppUser
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.png">
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="~/Content/adminTheme/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/Content/adminTheme/css/bootstrap-reset.css" rel="stylesheet">
-    <!--external css-->
-    <link href="~/Content/adminTheme/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="~/Content/adminTheme/css/style.css" rel="stylesheet">
-    <link href="~/Content/adminTheme/css/style-responsive.css" rel="stylesheet" />
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body class="login-body">
-
-    <div class="container">
-     
-
-        @using (Html.BeginForm("Login","Login",FormMethod.Post, new { @class = "form-signin" }))
-        {
-            <h2 class="form-signin-heading">NTIER YÖNETİM PANELİ</h2>
-            <div class="login-wrap">
-                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Kullanıcı Adı Giriniz" })
-                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Şifre Giriniz" })
-                <label class="checkbox">
-                    <input type="checkbox" value="remember-me"> Beni Hatırla
-                    <span class="pull-right">
-                        <a data-toggle="modal" href="#myModal"> Şifremi Unuttum?</a>
-
-                    </span>
-                </label>
-                <button class="btn btn-lg btn-login btn-block" type="submit">Giriş Yap</button>
-                <p>veya sosyal medya adresleriniz üzerinden giriş yapabilirsiniz</p>
-                <div class="login-social-link">
-                    <a href="index.html" class="facebook">
-                        <i class="icon-facebook"></i>
-                        Facebook
-                    </a>
-                    <a href="index.html" class="twitter">
-                        <i class="icon-twitter"></i>
-                        Twitter
-                    </a>
+@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin" }))
+{
+    <h2 class="form-signin-heading">NTIER YÖNETİM PANELİ</h2>
+    <div class="login-wrap">
+        @{
+            if (TempData["Error"] != null)
+            {
+                <div class="alert-warning">
+                    <p style="color:red;">@TempData["Error"]</p>
                 </div>
-                <div class="registration">
-                    Henüz üye değil misiniz ?
-                    <a class="" href="registration.html">
-                        Yeni hesap Oluştur
-                    </a>
-                </div>
-
-            </div>
-            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Forgot Password ?</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Enter your e-mail address below to reset your password.</p>
-                            <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
-                        </div>
-                        <div class="modal-footer">
-                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                            <button class="btn btn-success" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            }
         }
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Kullanıcı Adı Giriniz" })
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Şifre Giriniz" })
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> Beni Hatırla
+            <span class="pull-right">
+                <a data-toggle="modal" href="#myModal"> Şifremi Unuttum?</a>
 
-
-
+            </span>
+        </label>
+        <button class="btn btn-lg btn-login btn-block" type="submit">Giriş Yap</button>
+        <p>veya sosyal medya adresleriniz üzerinden giriş yapabilirsiniz</p>
+        <div class="login-social-link">
+            <a href="index.html" class="facebook">
+                <i class="icon-facebook"></i>
+                Facebook
+            </a>
+            <a href="index.html" class="twitter">
+                <i class="icon-twitter"></i>
+                Twitter
+            </a>
+        </div>
+        <div class="registration">
+            Henüz üye değil misiniz ?
+            <a class="" href="registration.html">
+                Yeni hesap Oluştur
+            </a>
+        </div>
 
     </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Forgot Password ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your e-mail address below to reset your password.</p>
+                    <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-    <!-- js placed at the end of the document so the pages load faster -->
-
-    <script src="~/Content/adminTheme/js/bootstrap.min.js"></script>
-    <script src="~/Content/adminTheme/js/jquery.js"></script>
-
-</body>
-</html>
+}

@@ -1,4 +1,5 @@
-﻿using NTierProject.MODEL.Context;
+﻿using NtierProject.SERVICE.Option;
+using NTierProject.MODEL.Context;
 using NTierProject.MODEL.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,26 +17,27 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             return View();
         }
-        ProjectContext db = new ProjectContext();
-
+        
         [HttpPost]
         public ActionResult Login(AppUser kullanici)
         {
-            if(kullanici != null)
+            if(kullanici.UserName != null && kullanici.Password != null)
             {
-                using (ProjectContext context = new ProjectContext())
+                AppUserService appUserService = new AppUserService();
+                if (appUserService.CheckCredentials(kullanici.UserName, kullanici.Password))
                 {
-                    var user = context.Users.FirstOrDefault(x => x.UserName == kullanici.UserName && x.Password == kullanici.Password);
-
-
-
                     return RedirectToAction("Index", "Home");
-
-
                 }
+                else
+                {
+                    TempData["Error"] = "Kullanıcı adı veya şifre yanlış.";
+                    return View();
+                }
+             
             }
             else
             {
+                TempData["Error"] = "Kullanıcı adı veya şifre boş olamaz.";
                 return View();
             }        
         }

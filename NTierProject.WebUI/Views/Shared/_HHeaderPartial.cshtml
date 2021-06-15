@@ -7,14 +7,14 @@
         </button>
 
         <!--logo start-->
-        <a href="@Url.Action("Index","Home")"class="logo">E.<span>Ticaret</span></a>
+        <a href="@Url.Action("Index","Home", new { area = "" })"class="logo">E.<span>Ticaret</span></a>
         <!--logo end-->
         <div class="horizontal-menu navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="@Url.Action("Index", "Home")">Anasayfa</a></li>
-                <li><a href="@Url.Action("Index", "Product")">Ürünler</a></li>
-                <li><a href="@Url.Action("Index", "Category")">Kategoriler</a></li>
-                <li><a href="@Url.Action("Index", "SubCategory")">Alt Kategoriler</a></li>
+                <li><a href="@Url.Action("Index", "Home", new { area = "" })">Anasayfa</a></li>
+                <li><a href="@Url.Action("Index", "Product", new { area = "" })">Ürünler</a></li>
+                <li><a href="@Url.Action("Index", "Category", new { area = "" })">Kategoriler</a></li>
+                <li><a href="@Url.Action("Index", "SubCategory", new { area = "" })">Alt Kategoriler</a></li>
             </ul>
 
         </div>
