@@ -13,5 +13,13 @@ namespace NTierProject.WebUI.Controllers
         {
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+
     }
 }
