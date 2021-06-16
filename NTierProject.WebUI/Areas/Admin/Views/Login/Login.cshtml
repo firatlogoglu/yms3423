@@ -1,0 +1,27 @@
+﻿@model NTierProject.MODEL.Entities.AppUser
+@{
+    ViewBag.Title = "NTIER YÖNETİM PANELİ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@ViewBag.Title</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="login-wrap">
+
+                @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "E-Posta Adresi", @autofocus = "autofocus" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                <br />
+                @Html.TextBox("Password", null, new { @class = "form-control", placeholder = "Şifre", type = "Password" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <br />
+                <button class="btn btn-lg btn-block btn-success" type="submit">Giriş</button>
+            </div>
+        }
+    </div>
+</div>
