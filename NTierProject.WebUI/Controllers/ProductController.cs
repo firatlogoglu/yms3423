@@ -16,6 +16,13 @@ namespace NTierProject.WebUI.Controllers
 
         public ActionResult Create()
         {
+            //create işlemi
+            return View();
+        }
+
+        public ActionResult Update()
+        {
+           
             return View();
         }
 
