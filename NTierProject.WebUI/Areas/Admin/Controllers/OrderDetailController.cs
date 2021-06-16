@@ -48,7 +48,6 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
             }
             return View(od);
         }
-
   
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -56,7 +55,6 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             OrderDetail od = orderDetail.GetById(id);
             orderDetail.Remove(od);
-            orderDetail.Save();
             return RedirectToAction("Index");
         }
     }

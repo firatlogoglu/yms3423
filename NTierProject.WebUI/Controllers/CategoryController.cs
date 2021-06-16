@@ -1,25 +1,22 @@
 ﻿using NtierProject.SERVICE.Option;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NTierProject.WebUI.Controllers
 {
-    public class ProductController : Controller
+    public class CategoryController : Controller
     {
-        ProductService ps;
-        public ProductController()
+        CategoryService cat;
+        public CategoryController()
         {
-            ps = new ProductService();
+            cat = new CategoryService();
         }
 
         public ActionResult Index()
         {
             try
             {
-                return View(ps.GetActive());
+                return View(cat.GetActive());
             }
             catch (Exception)
             {

@@ -1,0 +1,46 @@
+﻿<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <li>
+                <a class="active" href="@Url.Action("Index","Home", new { area = "" })">
+                    <i class="icon-dashboard"></i>
+                    <span>Anasayfa</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "Product", new { area = "" })">
+                    <i class="icon-list"></i>
+                    <span>Ürünler</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "Category", new { area = "" })">
+                    <i class="icon-list"></i>
+                    <span>Kategoriler</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "SubCategory", new { area = "" })">
+                    <i class="icon-list"></i>
+                    <span>Alt Kategoriler</span>
+                </a>
+            </li>
+
+            <li class="sub-menu">
+                <a href="~/Content/adminTheme/javascript:;">
+                    <i class="icon-user-md"></i>
+                    <span>Giriş Yap/Kayıt Ol</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="@Url.Action("Register","Home", new { area = "" })">Kayıt Ol</a></li>
+                    <li><a href="@Url.Action("Login", "Login", new { area = "Admin" })">Yönetici Olarak Giriş Yap</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

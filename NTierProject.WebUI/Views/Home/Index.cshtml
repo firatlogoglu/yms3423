@@ -1,36 +1,50 @@
-﻿@using NTierProject.MODEL.Entities
-@model  List<NTierProject.MODEL.Entities.Product>
+﻿@model  List<NTierProject.MODEL.Entities.Product>
 @{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
 
-@foreach (var item in TestList.Products)
-{
-    <div class="row product-list">
-        <div class="col-md-4">
-            <section class="panel">
-                <div class="pro-img-box">
-                    <img src="@item.ImagePath" alt="">
-                    <a href="#" class="adtocart">
-                        <i class="icon-shopping-cart"></i>
-                    </a>
+@{
+    <div class="container">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-sm-4">
+                    <section class="panel">
+                        <div class="pro-img-box">
+                            <img src="@item.ImagePath" alt="@item.ProductName" width="140" height="140" class="center-block">
+                       
+                        </div>
+
+                        <div class="panel-body text-center">
+                            <h4>
+                                <a href="#" class="pro-title">
+                                    @item.ProductName
+                                </a>
+                            </h4>
+                            <p class="price">@item.UnitPrice</p>
+                            <a class="center-block btn btn-info" href="#">
+                                <i class="icon-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-sm-4">
+
+                    <div class="panel-body text-center">
+                        <form>
+                            <label>Bir Hata Meydana Geldi</label>
+                        </form>
                 </div>
 
-                <div class="panel-body text-center">
-                    <h4>
-                        <a href="#" class="pro-title">
-                            @item.ProductName
-                        </a>
-                    </h4>
-                    <p class="price">@item.UnitPrice</p>
-                </div>
-            </section>
-        </div>
+            </div>
+        }
     </div>
+
 }
-
-
-
-</html>

@@ -27,8 +27,8 @@
                     <span>Ürünler</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="~/Content/adminTheme/general.html">Hepsi</a></li>
-                    <li><a href="~/Content/adminTheme/buttons.html">Ürün Ekle</a></li>
+                    <li><a href="@Url.Action("Index","Product")">Ürünler</a></li>
+                    <li><a href="@Url.Action("Create","Product")">Ürün Ekle</a></li>
                 </ul>
             </li>
 
@@ -38,7 +38,7 @@
                     <span>Siparişler</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="~/Content/adminTheme/grids.html">Sipariş Listesi</a></li>
+                    <li><a href="@Url.Action("Index","Order")">Sipariş Listesi</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
@@ -47,7 +47,7 @@
                     <span>Sipariş Detay</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="~/Content/adminTheme/form_component.html">Sipariş Detayları</a></li>
+                    <li><a href="@Url.Action("Index","OrderDetail")">Sipariş Detayları</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
@@ -56,8 +56,8 @@
                     <span>Kullanıcılar</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="~/Content/adminTheme/basic_table.html">Tüm Kullanıcılar</a></li>
-                    <li><a href="~/Content/adminTheme/responsive_table.html">Kullanıcı Ekle</a></li>
+                    <li><a href="@Url.Action("Index","AppUser")">Tüm Kullanıcılar</a></li>
+                    <li><a href="@Url.Action("Create","AppUser")">Kullanıcı Ekle</a></li>
                 </ul>
             </li>
         </ul>
