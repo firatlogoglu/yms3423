@@ -1,0 +1,40 @@
+﻿@model List<OrderDetail>
+@{
+    ViewBag.Title = "Sipariş Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-lg-12">
+    <section class="panel">
+        <header class="panel-heading">
+            @ViewBag.Title @Html.ActionLink("Yeni Ekle", "Add", null, new { @class = "btn btn-primary" })
+        </header>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Miktar</th>
+                    <th>Birim Fiyat</th>
+
+                    <th colspan="2">
+                        Düzenle
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Quantity</td>
+                        <td>@item.UnitPrice</td>
+                        <td>
+                            <a href="@Url.Action("Update","OrderDetail",new { id=item.ID})"><i class="icon-pencil"></i></a>
+                            |
+                            <a href="@Url.Action("Delete","OrderDetail",new { id=item.ID})"><i class="icon-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>
