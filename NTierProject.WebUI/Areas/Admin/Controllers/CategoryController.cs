@@ -42,7 +42,7 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Category category)
@@ -51,7 +51,7 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
             {
                 category.ID = Guid.NewGuid();
                 db.Add(category);
-                db.Save();
+
                 return RedirectToAction("Index");
             }
 
@@ -72,15 +72,14 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
             }
             return View(category);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( Category category)
+        public ActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {
                 db.Update(category);
-                db.Save();
                 return RedirectToAction("Index");
             }
             return View(category);
@@ -108,10 +107,7 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             Category category = db.GetById(id);
             db.Remove(category);
-            db.Save();
             return RedirectToAction("Index");
         }
-
-     
     }
 }

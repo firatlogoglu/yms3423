@@ -30,7 +30,6 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
             {
                 order.ID = Guid.NewGuid();
                 db.Add(order);
-                db.Save();
                 return RedirectToAction("Index");
             }
             return View(order);
@@ -58,7 +57,6 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
             {
                 order.ID = Guid.NewGuid();
                 db.Update(order);
-                db.Save();
                 return RedirectToAction("Index");
             }
             return View(order);
@@ -84,7 +82,6 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             Order order = db.GetById(id);
             db.Remove(order);
-            db.Save();
             return RedirectToAction("Index");
         }
     }
