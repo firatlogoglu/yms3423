@@ -27,7 +27,10 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             model.ID = Guid.NewGuid();
             model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/Users/", ImagePath);
+            model.Password = model.ConfirmPassword = Guid.NewGuid().ToString();
+
             appUser.Add(model);
+            MailSender.Send(model.Email, "Sayın " + model.Name + " " + model.SurName + "," + "\n" + "İsteğiniz üzerine satıcı hesabınız açılmıştır." + "\n" + "Şifreniz: " + model.Password + "\n" + "\n" + "Giriş yaptıktan sonra lütfen şifrenizi değiştiriniz!", "Sitemize Hoşgeldiniz");
             return RedirectToAction("Index");
         }
 
@@ -39,6 +42,8 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(AppUser model, HttpPostedFileBase ImagePath)
         {
+            //TODO: Mail adresi değiştirildiğinde eski mail adresine "Mail adresiniz değiştirildi." şeklinde mail atılacak.
+
             if (ImagePath != null)
             {
                 model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/Users/", ImagePath);
@@ -62,6 +67,31 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         {
             appUser.Remove(appUser.GetById(Id));
             appUser.Save();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ResetPassword(Guid id)
+        {
+            AppUser user = appUser.GetById(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost, ActionName("ResetPassword")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ResetPasswordConfirmed(Guid id)
+        {
+            AppUser user = appUser.GetById(id);
+            user.Password = user.ConfirmPassword = Guid.NewGuid().ToString();
+
+            //TODO: Session veya cookie tanımlandığında değiştirenin id veya mail adresi ModifiedBy'a verilecek.
+            //user.ModifiedBy = Email;
+            appUser.Update(user);
+
+            MailSender.Send(user.Email, "Sayın " + user.Name + " " + user.SurName + "," + "\n" + "İsteğiniz üzerine şifreniz sıfırlandı." + "\n" + "Yeni Şifreniz: " + user.Password + "\n" + "\n" + "Giriş yaptıktan sonra lütfen şifrenizi değiştiriniz!", "Şifreniz sıfırlandı");
             return RedirectToAction("Index");
         }
     }

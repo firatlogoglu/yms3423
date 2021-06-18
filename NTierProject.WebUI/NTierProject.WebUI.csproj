@@ -2055,6 +2055,7 @@
     <Content Include="Areas\Admin\Views\OrderDetail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetail\Add.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetail\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AppUser\ResetPassword.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Update.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Create.cshtml" />

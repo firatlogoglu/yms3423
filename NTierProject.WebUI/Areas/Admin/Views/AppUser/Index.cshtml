@@ -27,7 +27,6 @@
                             <th><i class="icon-user"></i> Adı</th>
                             <th><i class="icon-user"></i> Soyadı</th>
                             <th><i class="icon-user"></i> Kullanıcı Adı</th>
-                            <th><i class="icon-lock"></i> Şifre</th>
                             <th><i class="icon-envelope"></i> Email</th>
                             <th><i class="icon-map-marker"></i> Adres</th>
                             <th><i class="icon-phone"></i> Telefon</th>
@@ -48,7 +47,6 @@
                                 <td>@item.Name</td>
                                 <td>@item.SurName</td>
                                 <td>@item.UserName</td>
-                                <td>@item.Password</td>
                                 <td>@item.Email</td>
                                 <td>@item.Address</td>
                                 <td>@item.PhoneNumber</td>
@@ -76,8 +74,9 @@
                                 }
                                 <td>@item.CreatedDate</td>
                                 <td>
-                                    <a href="@Url.Action("Edit", "AppUser", new { id=item.ID })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
-                                    <a href="@Url.Action("Delete", "AppUser", new { id=item.ID })" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                                    <a href="@Url.Action("Edit", "AppUser", new { id=item.ID })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i> Düzenle</a>
+                                    <a href="@Url.Action("ResetPassword", "AppUser", new { id=item.ID })" class="btn btn-warning btn-xs"><i class="icon-key"></i> Şifreyi Sıfırla</a>
+                                    <a href="@Url.Action("Delete", "AppUser", new { id=item.ID })" class="btn btn-danger btn-xs"><i class="icon-trash"></i> Sil</a>
                                 </td>
                             </tr>
                         }
