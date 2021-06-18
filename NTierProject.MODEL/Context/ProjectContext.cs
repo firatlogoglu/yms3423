@@ -70,7 +70,10 @@ namespace NTierProject.MODEL.Context
                         entity.CreatedADUsername = identity;
                         entity.CreatedComputerName = computerName;
                         entity.CreatedDate = dateTime;
-                        entity.CreatedBy = user;
+                        if (entity.CreatedBy == null)
+                        {
+                            entity.CreatedBy = user;
+                        }
                         entity.CreatedIP = ip;
                     }
                     else if (item.State == EntityState.Modified)
@@ -79,7 +82,10 @@ namespace NTierProject.MODEL.Context
                         entity.ModifiedComputerName = computerName;
                         entity.ModifiedDate = dateTime;
                         entity.ModifiedIP = ip;
-                        entity.ModifiedBy = user;
+                        if (entity.ModifiedBy == null)
+                        {
+                            entity.ModifiedBy = user;
+                        }
                     }
                 }
             }
