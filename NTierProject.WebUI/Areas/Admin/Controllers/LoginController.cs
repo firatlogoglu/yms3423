@@ -21,21 +21,23 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Login(AppUser kullanici)
         {
-            if (ModelState.IsValid)
+            if(kullanici != null)
             {
                 using (ProjectContext context = new ProjectContext())
                 {
-                    var user = context.Users.FirstOrDefault(x =>x.UserName ==kullanici.UserName && x.Password == kullanici.Password);
+                    var user = context.Users.FirstOrDefault(x => x.UserName == kullanici.UserName && x.Password == kullanici.Password);
 
-         
-                       
-                        return RedirectToAction("Home", "Index");
-                   
+
+
+                    return RedirectToAction("Index", "Home");
+
 
                 }
             }
-
-            return View();
+            else
+            {
+                return View();
+            }        
         }
     }
 }
