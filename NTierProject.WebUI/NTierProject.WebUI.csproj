@@ -2087,6 +2087,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\RegisterOk.cshtml" />
+    <Content Include="Views\Shared\_HSidebarPartial.cshtml" />
+    <Content Include="Views\Shared\_HHeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
