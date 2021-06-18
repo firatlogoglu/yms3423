@@ -48,8 +48,8 @@
         <div id="produtc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Ürünler:</h6>
-                <a class="collapse-item" href="utilities-color.html">Hepsi</a>
-                <a class="collapse-item" href="utilities-border.html">Ürün Ekle</a>
+                <a class="collapse-item" href="@Url.Action("Index","Product")">Hepsi</a>
+                <a class="collapse-item" href="@Url.Action("Create","Product")">Ürün Ekle</a>
             </div>
         </div>
     </li>
@@ -92,8 +92,8 @@
         <div id="user" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Tüm Kullanıcılar</a>
-                <a class="collapse-item" href="utilities-color.html">Kullanıcı Ekle</a>
+                <a class="collapse-item" href="@Url.Action("Index","AppUser")">Tüm Kullanıcılar</a>
+                <a class="collapse-item" href="@Url.Action("Create","AppUser")">Kullanıcı Ekle</a>
             </div>
         </div>
     </li>
