@@ -11,56 +11,93 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        ProductService ProductService = new ProductService();
-        SubCategoryService subCategory = new SubCategoryService();
+        ProductService productService;
+        SubCategoryService subCategory;
+        public ProductController()
+        {
+            productService = new ProductService();
+            subCategory = new SubCategoryService();
+        }
 
         public ActionResult Index()
         {
-            var products = ProductService.GetActive().OrderByDescending(x => x.CreatedDate).ToList();
+            var products = productService.GetActive().OrderByDescending(x => x.CreatedDate).ToList();
             return View(products);
         }
 
         public ActionResult Create()
         {
 
-            return View(subCategory.GetActive());
+            ViewBag.SubCategoryID = new SelectList(subCategory.GetActive(), "ID", "Name");
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Product model, HttpPostedFileBase ImagePath)
+        public ActionResult Create(Product product, HttpPostedFileBase ImagePath)
         {
-            model.ID = Guid.NewGuid();
-            model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/", ImagePath);
-            ProductService.Add(model);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                product.ID = Guid.NewGuid();
+
+                if (product.UnitsInStock <= 0)
+                {
+                    product.Status = CORE.Enums.Status.Deleted;
+                    product.UnitsInStock = 0;
+                    TempData["Error"] = product.ProductName + " isimli ürün, stoktaki ürün miktrı 0 veya negatif sayı olduğundan dolayı otomatik olarak stok miktarı 0 ve ürünü satıştan kaldırıldı. ";
+                }
+
+                //TODO: Yol ayarlanacak
+                product.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/", ImagePath);
+                productService.Add(product);
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.SubCategoryID = new SelectList(subCategory.GetActive(), "ID", "Name", product.SubCategoryID);
+            return View(product);
         }
 
-        //Todo: Update Action
         public ActionResult Update(Guid id)
         {
-            ViewBag.SubCategories = subCategory.GetAll();
-            return View(ProductService.GetById(id));
+            Product product = productService.GetById(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.SubCategoryID = new SelectList(subCategory.GetActive(), "ID", "Name", product.SubCategoryID);
+            return View(product);
         }
 
         [HttpPost]
-        public ActionResult Update(Product model,HttpPostedFileBase ImagePath,Guid SubCategoryID)
+        public ActionResult Update(Product product, HttpPostedFileBase ImagePath)
         {
-            ViewBag.SubCategories = subCategory.GetAll();
-            model.SubCategory = subCategory.GetById(SubCategoryID);
-            model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/Users/", ImagePath);
-            ProductService.Update(model);
-            return View("Index");
-        }
+            if (ImagePath != null)
+            {
+                product.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/", ImagePath);
+                productService.Update(product);
 
-        //Todo: Delete Action
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                product.ImagePath = productService.GetById(product.ID).ImagePath;
+                productService.Update(product);
+
+                return RedirectToAction("Index");
+            }
+        }
 
         public ActionResult Delete(Guid id)
         {
-            var deleted=ProductService.GetById(id);
-            ProductService.Remove(deleted);
-            return View("Index");
+            return View(productService.GetById(id));
         }
 
-
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(Guid id)
+        {
+            productService.Remove(productService.GetById(id));
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!-- Content Row -->
@@ -8,11 +9,11 @@
         <div class="card-body">
             <div class="d-sm-flex align-items-center m-lg-auto">
 
-                @if(Model != null)
+                @if (Model != null)
                 {
 
-                foreach (var item in Model)
-            {
+                    foreach (var item in Model)
+                    {
                 <div class="card shadow mb-2">
                     <!-- Card Header - Accordion -->
                     <a href="#collapseCardExample-@item.ProductName" class="d-block card-header py-3" data-toggle="collapse"

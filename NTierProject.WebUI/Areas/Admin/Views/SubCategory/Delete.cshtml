@@ -1,7 +1,6 @@
-﻿@model NTierProject.MODEL.Entities.AppUser
-
+﻿@model NTierProject.MODEL.Entities.SubCategory
 @{
-    ViewBag.Title = "Kullanıcı Sil";
+    ViewBag.Title = "Sil";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -10,7 +9,7 @@
         <h6 class="m-0 font-weight-bold text-primary">@Model.Name - @ViewBag.Title</h6>
     </div>
     <div class="card-body">
-        <h2>@Model.Name  @Model.SurName (@Model.Email) isimli hesap silinsin mi?</h2>
+        <h2>@Model.Name silinsin mi?</h2>
         <div>
             @using (Html.BeginForm())
             {
@@ -24,5 +23,5 @@
 </div>
 
 <div>
-    @Html.ActionLink("Kullanıcı Listesine Geri Dön", "Index")
+    @Html.ActionLink("Alt Kategori Listesine Geri Dön", "Index")
 </div>

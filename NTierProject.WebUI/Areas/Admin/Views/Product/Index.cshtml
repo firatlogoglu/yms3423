@@ -4,50 +4,59 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="col-lg-12">
-    <section class="panel">
-        <header class="panel-heading">
-            @ViewBag.Title @Html.ActionLink("Yeni Ekle","Create",null,new { @class="btn btn-primary"})
-        </header>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Görsel</th>
-                    <th>Ürün Adı</th>
-                    <th>Stok</th>
-                    <th>Kategori Adı</th>
-                    <th colspan="2">
-                        Düzenle
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>
-                        <img src="@item.ImagePath" style="width:32px; height:32px;" />
-                    </td>
-                    <td>@item.ProductName</td>
-                    <td>@item.UnitsInStock</td>
-                    <!--HATA VAR!-->
-                    @try
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@ViewBag.Title</h6>
+        @Html.ActionLink("Yeni Ürün Ekle", "Create", null, new { @class = "pull-right-mycss" })
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Görsel</th>
+                        <th>Ürün Adı</th>
+                        <th>Stok</th>
+                        <th>Kategori Adı</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Görsel</th>
+                        <th>Ürün Adı</th>
+                        <th>Stok</th>
+                        <th>Kategori Adı</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
                     {
-                        <td>@item.SubCategory.Name</td>
-                    }
-                    catch (Exception ex)
-                    {
+                        <tr>
+                            <td>
+                                <img src="@item.ImagePath" class="img-sm-mycss" />
+                            </td>
+                            <td>@item.ProductName</td>
+                            <td>@item.UnitsInStock</td>
+                       
+                            @try
+                            {
+                                <td>@item.SubCategory.Name</td>
+                            }
+                            catch (Exception ex)
+                            {
 
-                        <td>@ex.Message</td>
+                                <td>@ex.Message</td>
+                            }
+                            <td>
+                                @Html.ActionLink("Düzenle", "Update", "Product", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+                                @Html.ActionLink("Sil", "Delete", "Product", new { id = item.ID }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
                     }
-                    <td>
-                        <a href="@Url.Action("Update","Product",new { id=item.ID})"><i class="icon-pencil"></i></a>
-                        |
-                        <a href="@Url.Action("Delete","Product",new { id=item.ID})"><i class="icon-trash"></i></a>
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    </section>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

@@ -1,38 +1,49 @@
 ﻿@model List<SubCategory>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Alt Kategoriler";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-<div class="col-sm-6">
-    <section class="panel">
-        <header class="panel-heading">
-            Basic Table
-        </header>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Alt Kategori Adı</th>
-                    <th>Açıklama</th>
-                    <th>Etiket</th>
-                    <th>Düzenle</th>
-                </tr>
-            </thead>
-            <tbody>
-           @foreach (var item in Model)
-           {
-               <tr>
-                   <td>@item.Name</td>
-                   <td>@item.Description</td>
-                   <td>@item.Tag</td>
-                   <td>
-                       @Html.ActionLink("Güncelle","Update",new { id=item.ID},new { @class="btn btn-warning"})
-                       |
-                       @Html.ActionLink("Sil","Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
-                   </td>
-               </tr>
-           }
-            </tbody>
-        </table>
-    </section>
-</div>
 
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@ViewBag.Title</h6>
+        @Html.ActionLink("Yeni Alt Kategori Ekle", "Add", null, new { @class = "pull-right-mycss" })
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Alt Kategori Adı</th>
+                        <th>Açıklama</th>
+                        <th>Etiket</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Alt Kategori Adı</th>
+                        <th>Açıklama</th>
+                        <th>Etiket</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.Tag</td>
+                            <td>
+                                @Html.ActionLink("Güncelle", "Update", new { id = item.ID }, new { @class = "btn btn-warning" })
+                                |
+                                @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

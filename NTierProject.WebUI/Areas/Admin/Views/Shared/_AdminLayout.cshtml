@@ -13,6 +13,10 @@
 
     <!-- Custom styles for this template-->
     <link href="~/Content/Sb_Admin_2/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link href="~/Content/myCSS.css" rel="stylesheet" />
+
+    <link href="~/Content/Sb_Admin_2/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
 </head>
 <body id="page-top">
     <div id="wrapper">
@@ -234,13 +238,7 @@
                     @RenderBody()
                 </div>
             </div>
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+            @Html.Partial("~/Views/Shared/_Footer.cshtml")
         </div>
     </div>
 
@@ -284,5 +282,9 @@
     <!-- Page level custom scripts -->
     <script src="~/Content/Sb_Admin_2/js/demo/chart-area-demo.js"></script>
     <script src="~/Content/Sb_Admin_2/js/demo/chart-pie-demo.js"></script>
+
+    <script src="~/Content/Sb_Admin_2/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Sb_Admin_2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/Sb_Admin_2/js/demo/datatables-demo.js"></script>
 </body>
 </html>
