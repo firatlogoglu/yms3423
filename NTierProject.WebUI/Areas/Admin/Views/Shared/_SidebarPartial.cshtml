@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">NTierProject</div>
+        <div class="sidebar-brand-text mx-3">E.Ticaret</div>
     </a>
 
     <!-- Divider -->
@@ -14,8 +14,8 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="@Url.Action("Index","Home")">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Panel</span>
+            <i class="fas fa-fw fa-home"></i>
+            <span>Anasayfa</span>
         </a>
     </li>
 
@@ -48,8 +48,8 @@
         <div id="produtc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Ürünler:</h6>
-                <a class="collapse-item" href="utilities-color.html">Hepsi</a>
-                <a class="collapse-item" href="utilities-border.html">Ürün Ekle</a>
+                <a class="collapse-item" href="@Url.Action("Index","Product")">Hepsi</a>
+                <a class="collapse-item" href="@Url.Action("Create","Product")">Ürün Ekle</a>
             </div>
         </div>
     </li>
@@ -64,7 +64,7 @@
         <div id="order" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Sipariş Listesi</a>
+                <a class="collapse-item" href="@Url.Action("Index","Order")">Sipariş Listesi</a>
             </div>
         </div>
     </li>
@@ -78,7 +78,7 @@
         <div id="orderdetay" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Sipariş Detayları</a>
+                <a class="collapse-item" href="@Url.Action("Index","OrderDetail")">Sipariş Detayları</a>
             </div>
         </div>
     </li>
@@ -92,8 +92,8 @@
         <div id="user" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Tüm Kullanıcılar</a>
-                <a class="collapse-item" href="utilities-color.html">Kullanıcı Ekle</a>
+                <a class="collapse-item" href="@Url.Action("Index","AppUser")">Tüm Kullanıcılar</a>
+                <a class="collapse-item" href="@Url.Action("Create","AppUser")">Kullanıcı Ekle</a>
             </div>
         </div>
     </li>

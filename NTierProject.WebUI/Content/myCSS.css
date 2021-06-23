@@ -1,0 +1,22 @@
+﻿.pull-right-mycss {
+    float: right !important;
+}
+
+.pull-left-mycss {
+    float: left !important;
+}
+
+.img-sm-mycss {
+    width: 45px;
+    height: 45px;
+}
+
+.img-sm-mycss_2 {
+    width: 60px;
+    height: 30px;
+}
+
+.img-lm-mycss {
+    width: 120px;
+    height: 120px;
+}

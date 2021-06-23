@@ -1,63 +1,87 @@
 ﻿@model IEnumerable<NTierProject.MODEL.Entities.Category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategoriler";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            Düzenle
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        @switch (item.Status)
-        {
-            case NTierProject.CORE.Enums.Status.Active:
-                <td>
-                    Aktif
-                </td>
-                break;
-            case NTierProject.CORE.Enums.Status.Deleted:
-                <td>
-                    Silinmiş
-                </td>
-                break;
-            case NTierProject.CORE.Enums.Status.Updated:
-                <td>
-                    Değiştirilmiş
-                </td>
-                break;
-        }
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@ViewBag.Title</h6>
+        @Html.ActionLink("Yeni Kategori Ekle", "Create", null, new { @class = "pull-right-mycss" })
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            Düzenle
+                        </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            Düzenle
+                        </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            @switch (item.Status)
+                            {
+                                case NTierProject.CORE.Enums.Status.Active:
+                                    <td>
+                                        Aktif
+                                    </td>
+                                    break;
+                                case NTierProject.CORE.Enums.Status.Deleted:
+                                    <td>
+                                        Silinmiş
+                                    </td>
+                                    break;
+                                case NTierProject.CORE.Enums.Status.Updated:
+                                    <td>
+                                        Değiştirilmiş
+                                    </td>
+                                    break;
+                            }
+                            <td>
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+                                @Html.ActionLink("Detay", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+                                @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

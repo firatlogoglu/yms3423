@@ -1,0 +1,31 @@
+﻿@model List<NTierProject.MODEL.Entities.Product>
+@{
+    ViewBag.Title = "Ürünler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-10 pull-right">
+    <table class="table center">
+        <thead>
+            <tr>
+                <th>Görsel</th>
+                <th>Ürün Adı</th>
+                <th>Stok</th>
+                <th>Kategori Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.ImagePath" style="width:32px; height:32px;" />
+                    </td>
+                    <td>@item.ProductName</td>
+                    <td>@item.UnitsInStock</td>
+                    <td>@item.SubCategory.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

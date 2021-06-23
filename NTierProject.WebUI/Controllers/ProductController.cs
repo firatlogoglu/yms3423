@@ -1,32 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using NtierProject.SERVICE.Option;
+using System;
 using System.Web.Mvc;
 
 namespace NTierProject.WebUI.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
+        ProductService ps;
+        public ProductController()
+        {
+            ps = new ProductService();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View(ps.GetActive());
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
-
-        public ActionResult Create()
-        {
-            //create işlemi
-            return View();
-        }
-
-        public ActionResult Update()
-        {
-           
-            return View();
-        }
-
-
-
     }
 }

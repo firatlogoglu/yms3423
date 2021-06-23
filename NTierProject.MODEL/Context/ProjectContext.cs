@@ -4,6 +4,7 @@ using NTierProject.MODEL.Map;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -12,7 +13,7 @@ using System.Web;
 
 namespace NTierProject.MODEL.Context
 {
-   public class ProjectContext:DbContext
+    public class ProjectContext : DbContext
     {
         public ProjectContext()
         {
@@ -46,8 +47,17 @@ namespace NTierProject.MODEL.Context
             string computerName = Environment.MachineName;
             DateTime dateTime = DateTime.Now;
             int user = 1;
-            //Todo: Ip string olarak al!
-            string ip = HttpContext.Current.Request.UserHostAddress.ToString();
+
+            string ip = "";
+
+            if (HttpContext.Current == null)
+            {
+                ip = "192.168.1.1";
+            }
+            else
+            {
+                ip = HttpContext.Current.Request.UserHostAddress.ToString();
+            }
 
             foreach (var item in modifedEntry)
             {
@@ -60,7 +70,10 @@ namespace NTierProject.MODEL.Context
                         entity.CreatedADUsername = identity;
                         entity.CreatedComputerName = computerName;
                         entity.CreatedDate = dateTime;
-                        entity.CreatedBy = user;
+                        if (entity.CreatedBy == null)
+                        {
+                            entity.CreatedBy = user;
+                        }
                         entity.CreatedIP = ip;
                     }
                     else if (item.State == EntityState.Modified)
@@ -69,16 +82,34 @@ namespace NTierProject.MODEL.Context
                         entity.ModifiedComputerName = computerName;
                         entity.ModifiedDate = dateTime;
                         entity.ModifiedIP = ip;
-                        entity.ModifiedBy = user;
+                        if (entity.ModifiedBy == null)
+                        {
+                            entity.ModifiedBy = user;
+                        }
                     }
                 }
             }
 
-            return base.SaveChanges();
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
         }
-
-
-        //Todo: Incele:Object reference not set to an instance of an object.
-
     }
 }

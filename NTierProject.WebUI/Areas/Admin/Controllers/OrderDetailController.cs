@@ -1,10 +1,7 @@
 ﻿using NtierProject.SERVICE.Option;
 using NTierProject.MODEL.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 // TODO: 1  Detail listeleme, ekleme ve gücellemem yapılmamıştır
@@ -13,7 +10,6 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
 {
     public class OrderDetailController : Controller
     {
-        // GET: Admin/OrderDetail
         OrderService order = new OrderService();
         OrderDetailService orderDetail = new OrderDetailService();
         public ActionResult Index()
@@ -49,14 +45,12 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
             return View(od);
         }
 
-  
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
             OrderDetail od = orderDetail.GetById(id);
             orderDetail.Remove(od);
-            orderDetail.Save();
             return RedirectToAction("Index");
         }
     }

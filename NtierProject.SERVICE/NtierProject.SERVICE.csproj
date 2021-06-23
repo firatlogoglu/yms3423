@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NTierProject.COMMON\NTierProject.COMMON.csproj">
+      <Project>{AE1F5FA3-663F-448E-8C78-5117AF536B0D}</Project>
+      <Name>NTierProject.COMMON</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NTierProject.CORE\NTierProject.CORE.csproj">
       <Project>{0404e9e4-bed6-44da-bef7-9ac907379a11}</Project>
       <Name>NTierProject.CORE</Name>

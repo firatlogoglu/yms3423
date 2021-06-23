@@ -2,9 +2,7 @@
 using NTierProject.MODEL.Entities;
 using NTierProject.WebUI.Areas.Admin.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Net;
 using System.Web.Mvc;
 
 namespace NTierProject.WebUI.Areas.Admin.Controllers
@@ -20,7 +18,8 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
 
         public ActionResult Add()
         {
-            return View(category.GetActive());
+            ViewBag.CategoryID = new SelectList(category.GetActive(), "ID", "Name");
+            return View();
         }
 
         [HttpPost]
@@ -48,8 +47,25 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
 
         public ActionResult Delete(Guid id)
         {
-            var deleted = sub.GetById(id);
-            sub.Remove(deleted);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SubCategory subCategory = sub.GetById(id);
+            if (subCategory == null)
+            {
+                return HttpNotFound();
+            }
+            return View(subCategory);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(Guid id)
+        {
+            SubCategory subCategory = sub.GetById(id);
+            sub.Remove(subCategory);
+
             return RedirectToAction("Index");
         }
     }

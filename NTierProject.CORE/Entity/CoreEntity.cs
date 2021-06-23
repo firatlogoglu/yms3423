@@ -1,10 +1,6 @@
 ﻿using NTierProject.CORE.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace NTierProject.CORE.Entity
 {
@@ -20,7 +16,9 @@ namespace NTierProject.CORE.Entity
             //this.CreatedIP = "192.168.1.1";
             //this.CreatedBy = 1;
         }
-        public Guid ID { get; set ; }
+        public Guid ID { get; set; }
+
+        [Display(Name = "Durum")]
         public Status Status { get; set; }
 
         public DateTime? CreatedDate { get; set; }
@@ -29,16 +27,10 @@ namespace NTierProject.CORE.Entity
         public string CreatedADUsername { get; set; }
         public int? CreatedBy { get; set; }
 
-
         public DateTime? ModifiedDate { get; set; }
         public string ModifiedComputerName { get; set; }
         public string ModifiedIP { get; set; }
         public string ModifiedADUsername { get; set; }
         public int? ModifiedBy { get; set; }
-
-
-
-
-
     }
 }

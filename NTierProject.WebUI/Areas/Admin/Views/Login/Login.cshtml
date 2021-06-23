@@ -13,7 +13,14 @@
         {
             @Html.AntiForgeryToken()
             <div class="login-wrap">
-
+                @{
+                    if (TempData["Error"] != null)
+                    {
+                        <div class="alert-warning">
+                            <p style="color:red;">@TempData["Error"]</p>
+                        </div>
+                    }
+                }
                 @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "E-Posta Adresi", @autofocus = "autofocus" })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                 <br />
