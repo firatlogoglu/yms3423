@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NTierProject.COMMON.MyTools
 {
     public class MailSender
     {
-        public static void Send(string receiver, string body="Deneme", string subject="Test", string sender="web@ramx.net",string password="PYoe45N5")
+        public static void Send(string receiver, string body = "Deneme", string subject = "Test", string sender = "web@ramx.net", string password = "PYoe45N5")
         {
-
             MailAddress senderEmail = new MailAddress(sender);
             MailAddress receiverEmail = new MailAddress(receiver);
 

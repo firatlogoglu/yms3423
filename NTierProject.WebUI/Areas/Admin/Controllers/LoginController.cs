@@ -1,27 +1,20 @@
 ﻿using NtierProject.SERVICE.Option;
-using NTierProject.MODEL.Context;
 using NTierProject.MODEL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NTierProject.WebUI.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Admin/Login
-
         public ActionResult Login()
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Login(AppUser kullanici)
         {
-            if(kullanici.UserName != null && kullanici.Password != null)
+            if (kullanici.UserName != null && kullanici.Password != null)
             {
                 AppUserService appUserService = new AppUserService();
                 if (appUserService.CheckCredentials(kullanici.UserName, kullanici.Password))
@@ -33,13 +26,12 @@ namespace NTierProject.WebUI.Areas.Admin.Controllers
                     TempData["Error"] = "Kullanıcı adı veya şifre yanlış.";
                     return View();
                 }
-             
             }
             else
             {
                 TempData["Error"] = "Kullanıcı adı veya şifre boş olamaz.";
                 return View();
-            }        
+            }
         }
     }
 }

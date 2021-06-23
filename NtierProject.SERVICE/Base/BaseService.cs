@@ -6,14 +6,12 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NtierProject.SERVICE.Base
 {
     public class BaseService<T> : ICoreService<T> where T : CoreEntity
     {
-        
+
         #region Singleton Pattern
         private static ProjectContext _db;
 
@@ -27,9 +25,8 @@ namespace NtierProject.SERVICE.Base
                 }
                 return _db;
             }
-        } 
+        }
         #endregion
-
 
         public void Add(T item)
         {
@@ -45,9 +42,7 @@ namespace NtierProject.SERVICE.Base
 
         public bool Any(Expression<Func<T, bool>> exp)
         {
-
-           return db.Set<T>().Any(exp);
-            
+            return db.Set<T>().Any(exp);
         }
 
         public List<T> GetActive()
@@ -85,7 +80,6 @@ namespace NtierProject.SERVICE.Base
 
         public void RemoveAll(Expression<Func<T, bool>> exp)
         {
-
             foreach (var item in GetStatus(exp))
             {
                 item.Status = NTierProject.CORE.Enums.Status.Deleted;

@@ -1,33 +1,87 @@
 ﻿@model NTierProject.MODEL.Entities.AppUser
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Kayıt Ol";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Kayıt Ol</h1>
-</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@ViewBag.Title</h6>
+        <br />
+        <p>Lütfen bilgilerinizi aşağıdaki formu kullanarak doldurun</p>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-signin", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="login-wrap">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<div class="col-lg-12">
-    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-signin", enctype = "multipart/form-data" }))
-    {
-        <div class="">
-            <p>Lütfen bilgilerinizi aşağıdakki formu kullanarak doldurun</p>
-            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Kullanıcıadı girin" })
-            @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.UserName) } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    @if (ViewBag.ExistsUser != null)
+                    {
+                        <label class="text-danger">@ViewBag.ExistsUser</label>
+                    }
+                </div>
 
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Ad girin" })
-            @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", placeholder = "Soyad girin" })
-            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Şifre girin" })
-            @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
-            @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar Şifre girin" })
-            @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
-            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email girin" })
-            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
-            @Html.TextBoxFor(x => x.Address, new { @class = "form-control", placeholder = "Adres girin" })
-            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Telefon girin" })
-            <input type="file" class="form-control" name="ImagePath">
-            <button type="submit" class="btn btn-success">Gönder</button>
-        </div>
-    }
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.Name) } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.SurName, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.SurName) } })
+                    @Html.ValidationMessageFor(model => model.SurName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.Email) } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @if (ViewBag.ExistsEmail != null)
+                    {
+                        <label class="text-danger">@ViewBag.ExistsEmail</label>
+                    }
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.Password) } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.ConfirmPassword) } })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.PhoneNumber) } })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.Address) } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.BirthDate) } })
+                    @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Görsel Seç</label>
+                    <input type="file" class="form-control" name="ImagePath" required />
+                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                </div>
+                <br />
+
+                <div>
+                    <button class="btn btn-lg btn-block btn-success" type="submit">Kayıt Ol</button>
+                </div>
+
+            </div>
+        }
+    </div>
 </div>

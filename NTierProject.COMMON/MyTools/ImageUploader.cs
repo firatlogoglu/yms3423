@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace NTierProject.COMMON.MyTools
@@ -34,7 +30,6 @@ namespace NTierProject.COMMON.MyTools
                     1=png
                  */
 
-
                 string extension = fileArray[fileArray.Length - 1].ToLower();
                 string fileName = uniqueName + "." + extension;
 
@@ -56,7 +51,6 @@ namespace NTierProject.COMMON.MyTools
                 {
                     return "2";
                 }
-
             }
             else
             {
@@ -65,4 +59,3 @@ namespace NTierProject.COMMON.MyTools
         }
     }
 }
-

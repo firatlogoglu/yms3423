@@ -2,7 +2,7 @@
 using NTierProject.MODEL.Entities;
 namespace NTierProject.MODEL.Map
 {
-    public class OrderMap:CoreMap<Order>
+    public class OrderMap : CoreMap<Order>
     {
         public OrderMap()
         {

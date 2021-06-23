@@ -1,18 +1,14 @@
 ﻿using NTierProject.CORE.Map;
 using NTierProject.MODEL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NTierProject.MODEL.Map
 {
-   public class AppUserMap:CoreMap<AppUser>
+    public class AppUserMap : CoreMap<AppUser>
     {
         public AppUserMap()
         {
             ToTable("dbo.Users");
+
             Property(x => x.Address).IsOptional();
             Property(x => x.BirthDate).IsOptional();
             Property(x => x.Email).HasMaxLength(50).IsOptional();

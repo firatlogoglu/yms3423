@@ -3,7 +3,7 @@ using NTierProject.MODEL.Entities;
 
 namespace NTierProject.MODEL.Map
 {
-    public class CategoryMap:CoreMap<Category>
+    public class CategoryMap : CoreMap<Category>
     {
         public CategoryMap()
         {
@@ -12,7 +12,6 @@ namespace NTierProject.MODEL.Map
             HasMany(x => x.SubCategories)
                 .WithRequired(x => x.Category)
                 .HasForeignKey(x => x.CategoryID);
-
         }
     }
 }

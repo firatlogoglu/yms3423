@@ -6,7 +6,6 @@ namespace NTierProject.WebUI.Controllers
 {
     public class SubCategoryController : Controller
     {
-
         SubCategoryService subcat;
         public SubCategoryController()
         {

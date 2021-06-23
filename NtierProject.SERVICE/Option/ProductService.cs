@@ -3,7 +3,7 @@ using NTierProject.MODEL.Entities;
 
 namespace NtierProject.SERVICE.Option
 {
-   public class ProductService:BaseService<Product>
+    public class ProductService : BaseService<Product>
     {
     }
 }
